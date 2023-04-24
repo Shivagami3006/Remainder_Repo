@@ -1,69 +1,72 @@
 import React, { useState } from "react";
 
-import { userCollectionRef } from './App';
+import { userCollectionRef } from "./App";
 import { addDoc } from "firebase/firestore";
 
-function Createuser({refetchUsers}) 
-{
+function Createuser({ refetchUsers }) {
   const [name, setName] = useState("");
   const [event, setEvent] = useState("");
-//   const [date, setDate] = useState("");
+    const [date, setDate] = useState();
 
   const handleChange = (e) => {
     console.log(e.target.name);
-    if (e.target.name === 'name'){
-        setName(e.target.value)
-    }else{
-        setEvent(e.target.value)}
-    // else{
-    //     setDate(Number(e.target.value));
-    // }
-    };
-    const handleSubmit = async () => {
-         await addDoc(userCollectionRef,{name,event});
-        refetchUsers();
+    if (e.target.name === "name") {
+      setName(e.target.value);
+    } else if(e.target.name === "event") {
+      setEvent(e.target.value);
     }
-  return(
-    <div className="box">
-  <div>
-    <label>Name</label>
-    <input
-      name="name"
-      type="text"
-      className="box1"
-      id="event"
-      onChange={handleChange}
-    />
-  </div>
-  <div>
-    <label>Event</label>
-    <input
-      name="event"
-      type="text"
-      className="box1"
-      id="event"
-      onChange={handleChange}
-    />
-  </div>
-  <div className="box1">
-    <input type="date"/>
-  </div>
+    else{
+        console.log('fordate', e.target.value)
+        setDate(e.target.value);
+    }
+  };
+  const handleSubmit = async () => {
+    await addDoc(userCollectionRef, { name, event, date, createdAt: Date.now() });
+    refetchUsers();
+  };
+  return (
+    <div className="heading">
+      <h2>Remaindrer</h2>
+      <p>Add a Events</p>
 
-
-  
-  <div>
-        <button className="" onClick={handleSubmit}>Submit</button>
+      <section className="form">
+        <div className="form-group">
+          <div>
+            <input
+              name="name"
+              type="text"
+              className="form-control"
+              placeholder="enter name"
+              id="event"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              name="event"
+              type="text"
+              className="form-control"
+              id="event"
+              placeholder="enter event"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-control" placeholder="enter date">
+            <input type="date" onChange={handleChange} />
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="btn btn-block"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
-    </div>
-
-
-  )
- 
-
-
-
- };
-
-
+  );
+}
 
 export default Createuser;

@@ -1,35 +1,84 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.box1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
 }
-button{
-  background: none;
-  border: 0.1px solid black;
+
+h2
+ {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.form-group input
+ {
+  width: 100%;
   padding: 10px;
-  border-radius: 3px;
-  margin: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
 }
-.app{
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
   text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.box{
-  border: 2px solid black;
+
+.btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
   padding: 10px;
-  width: 300px;
-  margin: 10px auto;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
 }
+
+
+
+
+
+
