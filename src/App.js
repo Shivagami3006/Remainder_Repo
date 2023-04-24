@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { db } from "./firebase";
 import { collection, getDocs, orderBy } from "firebase/firestore";
 import Createuser from "./createuser";
-import AuthDetails from "./Components/AuthDetails";
+// import AuthDetails from "./Components/AuthDetails";
 import SignIn from "./Components/auth/SignIn";
 export const userCollectionRef = collection(db, "users");
 
